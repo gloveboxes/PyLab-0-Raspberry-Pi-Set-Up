@@ -1,21 +1,9 @@
 #!/bin/bash
 
-rm -r -f ~/ftp/*
+rm -r -f ~/ftp/software
 mkdir -p ~/ftp/software/linux
 mkdir -p ~/ftp/software/macos
 mkdir -p ~/ftp/software/windows
-mkdir -p ~/ftp/scripts
-mkdir -p ~/ftp/PyLab
-
-echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup-multiuser/scripts/* ~/ftp/scripts
-
-echo "Copy Labs"
-
-FTP_DIR=~/ftp
-
-git clone --depth=1 https://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
-git clone --depth=1 https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging.git $FTP_DIR/PyLab/PyLab-2-Docker-Debug
 
 echo 'downloading Visual Studio Code for Ubuntu starting'
 cd ~/ftp/software/linux

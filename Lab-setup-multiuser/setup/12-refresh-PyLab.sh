@@ -2,7 +2,8 @@
 
 cd ~/
 
-rm -r -f ~/PyLab && \
+rm -r -f ~/PyLab
+echo "Copy PyCon Set Up"
 git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
 sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
 cd ~/PyLab/Lab-setup-multiuser/setup
@@ -10,9 +11,18 @@ cd ~/PyLab/Lab-setup-multiuser/setup
 FTP_DIR=~/ftp
 rm -r $FTP_DIR/PyLab
 
+rm -r -f $FTP_DIR/scripts
+rm -r -f $FTP_DIR/PyLab
+
+mkdir -p $FTP_DIR/scripts
+mkdir -p $FTP_DIR/PyLab
+
 echo "Copy Labs"
 INSTALL_DIR=/mnt/sda2 && \
 git clone --depth=1 https://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
 
 INSTALL_DIR=/mnt/sda2 && \
 git clone --depth=1 https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging.git $FTP_DIR/PyLab/PyLab-2-Docker-Debug
+
+echo "Copy SSH Scripts"
+cp  ~/PyLab/Lab-setup-multiuser/scripts/* $FTP_DIR/scripts
