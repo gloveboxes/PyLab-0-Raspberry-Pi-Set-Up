@@ -2,11 +2,11 @@
 
 cd ~/
 
-rm -r -f ~/PyLab
-echo "Copy PyCon Set Up"
-git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
-cd ~/PyLab/Lab-setup-multiuser/setup
+# rm -r -f ~/PyLab
+# echo "Copy PyCon Set Up"
+# git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
+# sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
+# cd ~/PyLab/setup-singleuser
 
 FTP_DIR=~/ftp
 

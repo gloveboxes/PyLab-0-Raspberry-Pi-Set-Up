@@ -10,7 +10,6 @@ do
     sudo mkdir -p /home/dev$i/PyLab
 
     sudo cp -r $FTP_DIR/PyLab/* /home/dev$i/PyLab
-    # sudo cp -r ~/PyLab/Lab2-docker-debug /home/dev$i/PyLab
 
     sudo chown -R dev$i:dev$i /home/dev$i
 done

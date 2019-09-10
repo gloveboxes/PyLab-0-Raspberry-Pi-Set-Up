@@ -1,7 +1,6 @@
 #!/bin/bash
 
 while true; do
-    read -p "Name your Raspberry Pi: " RPI_NAME
     read -p "You wish to install Single User Mode PyLab ?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
@@ -36,11 +35,6 @@ sudo chmod g+rw /dev/i2c-1
 # Install Docker
 curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
 
-# Increase Swap space - this is targetted at systems with USB3 SSD
-sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/g' /etc/dphys-swapfile
-sudo /etc/init.d/dphys-swapfile stop
-sudo /etc/init.d/dphys-swapfile start
-
 # Set up Very Secure FTP Daemon
 mkdir -p /home/pi/ftp
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.backup
@@ -48,7 +42,3 @@ echo "listen_ipv6=YES" | sudo tee /etc/vsftpd.conf
 echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
 echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
 echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
-
-echo '++++++++++++++++++++++++++++++++++++'
-echo "login as ssh pi@$RPI_NAME.local"
-echo '++++++++++++++++++++++++++++++++++++'
