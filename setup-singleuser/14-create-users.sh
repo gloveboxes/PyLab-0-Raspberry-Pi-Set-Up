@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in {01..25}
+for i in {01..01}
 do
     sudo useradd  -p $(openssl passwd -1 raspberry) dev$i -G i2c,users,docker -m
     echo "dev$i ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/010_pi-nopasswd

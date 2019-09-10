@@ -2,7 +2,7 @@
 
 FTP_DIR=~/ftp
 
-for i in {01..25}
+for i in {01..01}
 do
     echo "Set up lab content for user dev$i"
 
