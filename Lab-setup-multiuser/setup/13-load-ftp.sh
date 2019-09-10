@@ -7,6 +7,16 @@ mkdir -p ~/ftp/software/windows
 mkdir -p ~/ftp/scripts
 mkdir -p ~/ftp/PyLab
 
+echo "Copy SSH Scripts"
+cp  ~/PyLab/Lab-setup/scripts/* ~/ftp/scripts
+
+echo "Copy Labs"
+INSTALL_DIR=/mnt/sda2 && \
+git clone --depth=1 https://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
+
+INSTALL_DIR=/mnt/sda2 && \
+git clone --depth=1 https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging.git $FTP_DIR/PyLab/PyLab-2-Docker-Debug
+
 echo 'downloading Visual Studio Code for Ubuntu starting'
 cd ~/ftp/software/linux
 rm * -f
@@ -33,9 +43,3 @@ rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=620882
 mv index.html?LinkID=620882 VSCode-darwin-stable.zip
-
-echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup/scripts/* ~/ftp/scripts
-
-cp -r ~/PyLab/Lab1-ssh-debug ~/ftp/PyLab
-cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
