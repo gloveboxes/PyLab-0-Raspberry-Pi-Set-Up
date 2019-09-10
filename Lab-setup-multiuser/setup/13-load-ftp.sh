@@ -8,7 +8,7 @@ mkdir -p ~/ftp/scripts
 mkdir -p ~/ftp/PyLab
 
 echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup/scripts/* ~/ftp/scripts
+cp  ~/PyLab/Lab-setup-multiuser/scripts/* ~/ftp/scripts
 
 echo "Copy Labs"
 INSTALL_DIR=/mnt/sda2 && \
