@@ -10,7 +10,7 @@ mkdir -p $FTP_DIR/scripts
 mkdir -p $FTP_DIR/PyLab
 
 echo "Copy SSH Scripts"
-cp -r $INSTALL_DIR/PyLab/Lab-setup/scripts $FTP_DIR/
+cp -r $INSTALL_DIR/PyLab/Lab-setup-multiuser/scripts $FTP_DIR/
 
 INSTALL_DIR=/mnt/sda2 && \
 git clone --depth=1 git://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
