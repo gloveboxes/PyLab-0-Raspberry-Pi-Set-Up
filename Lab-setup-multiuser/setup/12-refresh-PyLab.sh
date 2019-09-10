@@ -9,6 +9,7 @@ cd ~/PyLab/Lab-setup-multiuser/setup
 
 FTP_DIR=~/ftp
 rm -r $FTP_DIR/PyCon
+mkdir -p $FTP_DIR/PyCon
 
 echo "Copy Labs"
 INSTALL_DIR=/mnt/sda2 && \
