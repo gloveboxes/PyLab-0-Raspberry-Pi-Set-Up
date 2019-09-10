@@ -7,7 +7,7 @@ FTP_DIR=~/ftp
 sudo systemctl start docker 
 
 echo "building Lab 2 Docker Image"
-sudo docker build -t glovebox:latest -f $FTP_DIRPyLab/PyLab-2-Docker-Debug/Dockerfile .
+sudo docker build -t glovebox:latest -f $FTP_DIR/PyLab/PyLab-2-Docker-Debug/Dockerfile .
 
 echo "Building Telemetry Docker Image"
 sudo docker build -t pi-sense-hat-service:latest -f $FTP_DIR/PyLab/PyLab-3-Pi-Sense-Service/Dockerfile .
