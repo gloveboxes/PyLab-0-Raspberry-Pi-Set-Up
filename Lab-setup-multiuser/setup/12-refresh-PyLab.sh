@@ -15,7 +15,7 @@ cd $FTP_DIR/scripts
 sudo rm -r -f *
 
 cd $FTP_DIR/PyLab
-rm -r -f *
+sudo rm -r -f *
 
 cd
 
