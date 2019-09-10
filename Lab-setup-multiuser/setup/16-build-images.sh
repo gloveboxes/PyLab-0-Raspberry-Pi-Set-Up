@@ -1,15 +1,16 @@
 #!/bin/bash
 
-echo "building Lab 2 Docker Image"
+cd
+
+FTP_DIR=~/ftp
+
 sudo systemctl start docker 
-cd ~/github/Lab2-docker-debug 
-sudo docker build -t glovebox:latest . 
+
+echo "building Lab 2 Docker Image"
+sudo docker build -t glovebox:latest -f $FTP_DIR/PyLab/PyLab-2-Docker-Debug
 
 echo "Building Telemetry Docker Image"
-cd ~/github/Lab4-telemetry-service 
-sudo docker build -t lab-telemetry-service:latest . 
-
-cd
+sudo docker build -t lab-telemetry-service:latest -f $FTP_DIR/PyLab/PyLab-3-Pi-Sense-Service
 
 echo "Starting Telemetry Docker Image"
 sudo docker run -d \
