@@ -8,7 +8,7 @@ sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
 cd ~/PyLab/Lab-setup-multiuser/setup
 
 FTP_DIR=~/ftp
-rm -r $FTP_DIR/Pylab
+rm -r $FTP_DIR/PyLab
 
 echo "Copy Labs"
 INSTALL_DIR=/mnt/sda2 && \
