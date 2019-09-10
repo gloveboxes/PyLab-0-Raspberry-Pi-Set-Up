@@ -12,7 +12,7 @@ sudo chmod +x ~/PyLab/setup-multiuser/*.sh
 sudo chmod +x ~/PyLab/setup-singleuser/*.sh
 
 while true; do
-    read -p "Single or Multi user set up? ([S]ingle, [M]ulti), [Q]uit: " PyLab_Setup_Mode  < /dev/tty
+    read -p "Single or Multi user set up? ([S]ingle, [M]ulti), [Q]uit: " PyLab_Setup_Mode  < /dev/stdin
     case $PyLab_Setup_Mode in
         [Ss]* ) break;;
         [Mm]* ) break;;
