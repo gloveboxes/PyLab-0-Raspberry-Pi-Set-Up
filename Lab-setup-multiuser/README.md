@@ -83,9 +83,9 @@ Login to the Raspberry Pi and run the following commands.
 
 ```bash
 rm -r -f ~/PyLab && \
-git clone --depth=1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh && \
-cd ~/PyLab/Lab-setup/setup
+git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
+sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
+cd ~/PyLab/Lab-setup-multiuser/setup
 ```
 
 ## End to End Set Up

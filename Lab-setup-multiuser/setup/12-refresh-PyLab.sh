@@ -1,11 +1,11 @@
 #!/bin/bash
 
+cd ~/
 
-rm -r -f ~/PyLab
-
-git clone --depth=1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh && \
-cd ~/PyLab/Lab-setup/setup
+rm -r -f ~/PyLab && \
+git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
+sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
+cd ~/PyLab/Lab-setup-multiuser/setup
 
 FTP_DIR=~/ftp
 rm -r $FTP_DIR/PyCon
