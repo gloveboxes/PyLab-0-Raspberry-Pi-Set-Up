@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/pylab-setup.sh | bash
+# curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/setup.sh | bash
 
 sudo apt update && sudo apt install -y git
 
@@ -12,7 +12,7 @@ sudo chmod +x ~/PyLab/setup-multiuser/*.sh
 sudo chmod +x ~/PyLab/setup-singleuser/*.sh
 
 while true; do
-    read -p "Single or Multi user set up? ([S]ingle, [M]ulti), [Q]uit: " PyLab_Setup_Mode
+    read -p "Single or Multi user set up? ([S]ingle, [M]ulti), [Q]uit: " PyLab_Setup_Mode  < /dev/tty
     case $PyLab_Setup_Mode in
         [Ss]* ) break;;
         [Mm]* ) break;;
