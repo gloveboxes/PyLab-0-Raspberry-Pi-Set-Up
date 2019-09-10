@@ -12,8 +12,11 @@ mkdir -p $FTP_DIR/PyLab
 echo "Copy SSH Scripts"
 cp -r $INSTALL_DIR/PyLab/Lab-setup/scripts $FTP_DIR/
 
-cp -r $INSTALL_DIR/PyLab/Lab1-ssh-debug $FTP_DIR/PyLab
-cp -r $INSTALL_DIR/PyLab/Lab2-docker-debug $FTP_DIR/PyLab
+INSTALL_DIR=/mnt/sda2 && \
+git clone --depth=1 git://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
+
+INSTALL_DIR=/mnt/sda2 && \
+git clone --depth=1 git://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging.git $FTP_DIR/PyLab/PyLab-2-Docker-Debug
 
 echo 'downloading Visual Studio Code for Ubuntu starting'
 cd $FTP_DIR/software/linux
