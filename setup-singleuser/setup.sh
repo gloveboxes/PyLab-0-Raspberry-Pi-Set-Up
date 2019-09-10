@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LAB_DIR = ~/PyLab/setup-singleuser
+LAB_DIR=~/PyLab/setup-singleuser
 
 $LAB_DIR/11-install-core.sh
 if [ $? -ne 0 ]; then
