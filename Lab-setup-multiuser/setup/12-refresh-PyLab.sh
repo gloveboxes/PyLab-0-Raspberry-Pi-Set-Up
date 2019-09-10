@@ -11,9 +11,12 @@ cd ~/PyLab/Lab-setup-multiuser/setup
 FTP_DIR=~/ftp
 rm -r $FTP_DIR/PyLab
 
-sudo rm -r -f $FTP_DIR/scripts
-cd $FTP_DIR/PyLab
+cd $FTP_DIR/scripts
 sudo rm -r -f *
+
+cd $FTP_DIR/PyLab
+rm -r -f *
+
 cd
 
 mkdir -p $FTP_DIR/scripts
