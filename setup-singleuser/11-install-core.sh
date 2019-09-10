@@ -2,7 +2,7 @@
 
 while true; do
     read -p "Name your Raspberry Pi: " RPI_NAME
-    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
+    read -p "You wish to install Single User Mode PyLab ?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit 1;;
@@ -19,7 +19,6 @@ sudo pip3 install --upgrade pip
 sudo -H pip3 install requests flask autopep8 pylint
 
 # https://www.raspberrypi.org/forums/viewtopic.php?t=21632
-sudo raspi-config nonint do_hostname $RPI_NAME
 sudo raspi-config nonint do_i2c 0
 sudo raspi-config nonint do_memory_split 16
 
