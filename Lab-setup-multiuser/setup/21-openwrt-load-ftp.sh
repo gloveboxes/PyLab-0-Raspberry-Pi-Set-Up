@@ -14,7 +14,7 @@ cp -r $INSTALL_DIR/PyLab/Lab-setup-multiuser/scripts $FTP_DIR/
 
 echo "Copy Labs"
 
-sudo rm -r -f $FTP_DIR/PyLab
+rm -r -f $FTP_DIR/PyLab
 mkdir -p $FTP_DIR/PyLab
 
 git clone --depth=1 git://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
