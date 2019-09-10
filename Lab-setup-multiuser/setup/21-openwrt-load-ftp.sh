@@ -13,11 +13,13 @@ echo "Copy SSH Scripts"
 cp -r $INSTALL_DIR/PyLab/Lab-setup-multiuser/scripts $FTP_DIR/
 
 echo "Copy Labs"
-INSTALL_DIR=/mnt/sda2 && \
-git clone --depth=1 git://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
 
-INSTALL_DIR=/mnt/sda2 && \
+sudo rm -r -f $FTP_DIR/PyLab
+mkdir -p $FTP_DIR/PyLab
+
+git clone --depth=1 git://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
 git clone --depth=1 git://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging.git $FTP_DIR/PyLab/PyLab-2-Docker-Debug
+git clone --depth=1 git://github.com/gloveboxes/PyLab-3-Pi-Sense-Hat-Telemetry-Service.git $FTP_DIR/PyLab/PyLab-3-Pi-Sense-Service
 
 echo 'downloading Visual Studio Code for Ubuntu starting'
 cd $FTP_DIR/software/linux

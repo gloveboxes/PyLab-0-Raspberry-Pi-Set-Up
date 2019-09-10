@@ -11,10 +11,11 @@ cd ~/PyLab/Lab-setup-multiuser/setup
 FTP_DIR=~/ftp
 
 sudo rm -r -f $FTP_DIR/PyLab
-sudo rm -r -f $FTP_DIR/scripts
-
-mkdir -p $FTP_DIR/scripts
 mkdir -p $FTP_DIR/PyLab
+
+sudo rm -r -f $FTP_DIR/scripts
+mkdir -p $FTP_DIR/scripts
+
 
 echo "Copy Labs"
 git clone --depth=1 https://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application.git $FTP_DIR/PyLab/PyLab-1-Python-Debug
