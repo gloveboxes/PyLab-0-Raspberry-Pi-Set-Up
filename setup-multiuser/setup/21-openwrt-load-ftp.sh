@@ -10,7 +10,7 @@ mkdir -p $FTP_DIR/scripts
 mkdir -p $FTP_DIR/PyLab
 
 echo "Copy SSH Scripts"
-cp -r $INSTALL_DIR/PyLab/Lab-setup-multiuser/scripts $FTP_DIR/
+cp -r $INSTALL_DIR/PyLab/scripts $FTP_DIR/
 
 echo "Copy Labs"
 

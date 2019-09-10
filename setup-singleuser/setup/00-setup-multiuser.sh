@@ -6,7 +6,7 @@ if [ $? -ne 0 ]; then
 fi
 
 ~/PyLab/Lab-setup/setup/12-refresh-PyLab.sh
-~/PyLab/Lab-setup/setup/13-load-ftp.sh
+~/PyLab/Lab-setup/setup/13-load-vs-code.sh
 ~/PyLab/Lab-setup/setup/14-create-users.sh
 ~/PyLab/Lab-setup/setup/15-copy-lab.sh
 ~/PyLab/Lab-setup/setup/16-build-images.sh

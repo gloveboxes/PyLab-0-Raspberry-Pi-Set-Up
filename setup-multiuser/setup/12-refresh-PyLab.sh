@@ -24,4 +24,4 @@ git clone --depth=1 https://github.com/gloveboxes/PyLab-3-Pi-Sense-Hat-Telemetry
 
 
 echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup-multiuser/scripts/* $FTP_DIR/scripts
+cp  ~/PyLab/scripts/* $FTP_DIR/scripts

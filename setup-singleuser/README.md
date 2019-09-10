@@ -1,5 +1,16 @@
 # Python Hands-on Labs Set Up
 
+|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
+|:----|:---|
+|Platforms | Linux, macOS, Windows, Raspbian Buster|
+|Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
+|Tools| [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=pycon-blog-dglover)|
+|Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) model required for 20 Users. Raspberry Pi [Sense HAT](https://www.raspberrypi.org/products/sense-hat/), Optional: Raspberry Pi [case](https://shop.pimoroni.com/products/pibow-coupe-4?variant=29210100138067), [active cooling fan](https://shop.pimoroni.com/products/fan-shim)
+|**USB3 SSD Drive**| To support up to 20 users per Raspberry Pi you need a **fast** USB3 SSD Drive to run Raspbian Buster Linux on. A 120 USB3 SSD drive will be more than sufficient. These are readily available from online stores.
+|Language| Python|
+|Date|As of September, 2019|
+
+
 <!-- [Setting up Ethernet Access Point](wifirouter.md) -->
 
 [OpenWRT and the Linksys WRT 1900 ACS Router](https://github.com/gloveboxes/Linksys-WRT-1900-ACS-with-Huawei-E3372-Hi-Link-LTE-Dongle)
@@ -83,9 +94,9 @@ Login to the Raspberry Pi and run the following commands.
 
 ```bash
 rm -r -f ~/PyLab && \
-git clone --depth=1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh && \
-cd ~/PyLab/Lab-setup/setup
+git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
+sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
+cd ~/PyLab/Lab-setup-multiuser/setup
 ```
 
 ## End to End Set Up
