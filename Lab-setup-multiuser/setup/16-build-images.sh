@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd
-
 FTP_DIR=~/ftp
 
 sudo systemctl start docker 
