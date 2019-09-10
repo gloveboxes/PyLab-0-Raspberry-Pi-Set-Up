@@ -23,8 +23,9 @@ done
 
 if [ $PyLab_Setup_Mode = 'S' ] || [ $PyLab_Setup_Mode = 's' ]; then   
     echo 'single mode'
-#   ~/~/PyLab/setup-singleuser/setup.sh
+    ~/PyLab/setup-singleuser/setup.sh
 else 
     echo 'multi mode'
+    ~/PyLab/setup-multiuser/setup.sh
 fi
 
