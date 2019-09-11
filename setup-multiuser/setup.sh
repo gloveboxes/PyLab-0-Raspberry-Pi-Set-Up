@@ -2,12 +2,14 @@
 
 LAB_DIR=~/PyLab/setup-multiuser
 
-$LAB_DIR/11-install-core.sh
+
+$LAB_DIR/10-Install-prerequisites.sh
 if [ $? -ne 0 ]; then
     exit $?
 fi
 
-$LAB_DIR/12-refresh-PyLab.sh
+$LAB_DIR/11-install-core.sh
+$LAB_DIR/12-load-ftp.sh
 $LAB_DIR/13-load-vs-code.sh
 $LAB_DIR/14-create-users.sh
 $LAB_DIR/15-copy-lab.sh
