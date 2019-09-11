@@ -13,7 +13,8 @@ while true; do
     esac
 done
 
-if [ "BOOT_USB3" == "true" ]; then
+if [ "$BOOT_USB3" == "true" ]; then
+    sudo fdisk /dev/sda
     sudo mkfs.ext4 /dev/sda1
     sudo mkdir /media/usbdrive
     sudo mount /dev/sda1 /media/usbdrive
@@ -26,7 +27,7 @@ while true; do
     read -p "Name your Raspberry Pi: " RPI_NAME
     read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
-        [Yy]* ) ;break;;
+        [Yy]* ) break;;
         [Qq]* ) exit 1;;
         [Nn]* ) continue;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
