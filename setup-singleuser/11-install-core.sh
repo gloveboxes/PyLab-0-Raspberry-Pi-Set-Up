@@ -11,7 +11,7 @@ while true; do
 done
 
 while true; do
-    read -p "Do you wish to update your Raspberry Pi (this will reboot the Raspberry Pi) ?' ([Y]es/[N]o/[Q]uit)" yn
+    read -p "Do you wish to update your Raspberry Pi first. The Raspberry Pi will reboot (Recommended) ?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) sudo apt update && sudo apt upgrade -y && sudo reboot;;
         [Qq]* ) exit 1;;
