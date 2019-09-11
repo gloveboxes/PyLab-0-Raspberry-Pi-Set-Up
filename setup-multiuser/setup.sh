@@ -1,14 +1,16 @@
 #!/bin/bash
 
-~/PyLab/Lab-setup/setup/11-install-core.sh
+LAB_DIR=~/PyLab/setup-multiuser
+
+$LAB_DIR/11-install-core.sh
 if [ $? -ne 0 ]; then
     exit $?
 fi
 
-~/PyLab/Lab-setup/setup/12-refresh-PyLab.sh
-~/PyLab/Lab-setup/setup/13-load-vs-code.sh
-~/PyLab/Lab-setup/setup/14-create-users.sh
-~/PyLab/Lab-setup/setup/15-copy-lab.sh
-~/PyLab/Lab-setup/setup/16-build-images.sh
-~/PyLab/Lab-setup/setup/17-copy-remote-ssh.sh
+$LAB_DIR/12-refresh-PyLab.sh
+$LAB_DIR/13-load-vs-code.sh
+$LAB_DIR/14-create-users.sh
+$LAB_DIR/15-copy-lab.sh
+$LAB_DIR/16-build-images.sh
+$LAB_DIR/17-copy-remote-ssh.sh
 
