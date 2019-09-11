@@ -41,3 +41,11 @@ else
     ~/PyLab/setup-multiuser/setup.sh
 fi
 
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "Raspbery Pi set up complete."
+echo "The Raspberry Pi will shutdown."
+echo "Disconnect the Raspberry Pi power."
+echo "Attach the Raspberry Pi Sense HAT if you have one."
+echo "Restart."
+
+sudo halt
