@@ -14,5 +14,5 @@ $LAB_DIR/13-load-vs-code.sh
 $LAB_DIR/14-create-users.sh
 $LAB_DIR/15-copy-lab.sh
 $LAB_DIR/16-build-images.sh
-$LAB_DIR/17-copy-remote-ssh.sh
+# $LAB_DIR/17-copy-remote-ssh.sh
 
