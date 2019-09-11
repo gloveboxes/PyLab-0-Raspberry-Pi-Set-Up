@@ -30,6 +30,12 @@ You’ll learn how to sync code to devices, attach debuggers, and step through y
 
 This fun session covers a range of scenarios and empowers you to supercharge your debugging techniques!
 
+## Raspberry Pi Install Bootstrap
+
+```bash
+bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/setup.sh)"
+```
+
 ## Personal Computer Requirements
 
 1. Bring your own laptop running one of the follow Operating Systems:
