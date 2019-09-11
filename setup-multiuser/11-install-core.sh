@@ -14,7 +14,7 @@ while true; do
 done
 
 if [ "BOOT_USB3" == "true" ]; then
-    sudo fdisk /dev/sda
+    sudo fdisk /dev/sda < /dev/tty
     sudo mkfs.ext4 /dev/sda1
     sudo mkdir /media/usbdrive
     sudo mount /dev/sda1 /media/usbdrive
