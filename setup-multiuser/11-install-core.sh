@@ -1,10 +1,22 @@
 #!/bin/bash
 
+INSTALL_FAN_SHIM="false"
+
 while true; do
     read -p "Name your Raspberry Pi: " RPI_NAME
     read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
-        [Yy]* ) break;;
+        [Yy]* ) ;break;;
+        [Qq]* ) exit 1;;
+        [Nn]* ) continue;;
+        * ) echo "Please answer yes(y), no(n), or quit(q).";;
+    esac
+done
+
+while true; do
+    read -p "Do you wish to Install Fan SMIM Support ?' ([Y]es/[N]o/[Q]uit)" yn
+    case $yn in
+        [Yy]* ) INSTALL_FAN_SHIM="true"; break;;
         [Qq]* ) exit 1;;
         [Nn]* ) continue;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
