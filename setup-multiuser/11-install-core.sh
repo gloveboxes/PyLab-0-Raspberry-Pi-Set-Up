@@ -50,6 +50,4 @@ echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
 echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
 echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
 
-echo '++++++++++++++++++++++++++++++++++++'
-echo "login as ssh pi@$RPI_NAME.local"
-echo '++++++++++++++++++++++++++++++++++++'
+

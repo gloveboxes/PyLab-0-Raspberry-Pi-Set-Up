@@ -42,3 +42,6 @@ echo "listen_ipv6=YES" | sudo tee /etc/vsftpd.conf
 echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
 echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
 echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
+
+sudo systemctl reload vsftpd
+sudo systemctl restart vsftpd
