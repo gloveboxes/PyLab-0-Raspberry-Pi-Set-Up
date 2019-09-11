@@ -2,13 +2,14 @@
 
 # bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/setup.sh)"
 
+echo ""
 
 while true; do
     read -p "Do you wish to update your Raspberry Pi first. The Raspberry Pi will reboot (Recommended) ?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) sudo apt update && sudo apt upgrade -y && sudo reboot;;
         [Qq]* ) exit 1;;
-        [Nn]* ) continue;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
     esac
 done
