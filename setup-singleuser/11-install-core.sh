@@ -12,11 +12,30 @@ done
 
 while true; do
     echo "Have you updated your Raspberry Pi (sudo apt update && sudo apt upgrade && sudo reboot)?"
-    echo "Have you named your Raspberry Pi (sudo raspi-config nonint do_hostname YOUR PI NAME)?"
-    echo "If you have a Raspberry Pi Sense HAT attached to your Raspberry Pi then remove it."
     read -p "Yes, all done. Start installation ?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
+        [Qq]* ) exit 1;;
+        [Nn]* ) continue;;
+        * ) echo "Please answer yes(y), no(n), or quit(q).";;
+    esac
+done
+
+while true; do
+    read -p "Have you removed the Pi Sense HAT from the Raspberry Pi ? ([Y]es/[N]o/[Q]uit)" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Qq]* ) exit 1;;
+        [Nn]* ) continue;;
+        * ) echo "Please answer yes(y), no(n), or quit(q).";;
+    esac
+done
+
+while true; do
+    read -p "Name your Raspberry Pi: " RPI_NAME
+    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
+    case $yn in
+        [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
         [Qq]* ) exit 1;;
         [Nn]* ) continue;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
