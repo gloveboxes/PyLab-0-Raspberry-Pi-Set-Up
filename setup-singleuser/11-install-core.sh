@@ -10,6 +10,19 @@ while true; do
     esac
 done
 
+while true; do
+    echo "Have you updated your Raspberry Pi (sudo apt update && sudo apt upgrade && sudo reboot)?"
+    echo "Have you named your Raspberry Pi (sudo raspi-config nonint do_hostname YOUR PI NAME)?"
+    echo "If you have a Raspberry Pi Sense HAT attached to your Raspberry Pi then remove it."
+    read -p "Yes, all done. Start installation ?' ([Y]es/[N]o/[Q]uit)" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Qq]* ) exit 1;;
+        [Nn]* ) continue;;
+        * ) echo "Please answer yes(y), no(n), or quit(q).";;
+    esac
+done
+
 sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
 
 export PIP_DEFAULT_TIMEOUT=200 
