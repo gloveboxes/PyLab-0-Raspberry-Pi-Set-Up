@@ -1,6 +1,7 @@
 #!/bin/bash
 
 while true; do
+    echo
     read -p "Do you wish to install Single User Mode PyLab ?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
@@ -11,8 +12,8 @@ while true; do
 done
 
 while true; do
-    echo "Have you updated your Raspberry Pi (sudo apt update && sudo apt upgrade && sudo reboot)?"
-    read -p "Yes, all done. Start installation ?' ([Y]es/[N]o/[Q]uit)" yn
+    echo
+    read -p "Have you updated your Raspberry Pi (sudo apt update && sudo apt upgrade && sudo reboot)?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit 1;;
@@ -22,6 +23,7 @@ while true; do
 done
 
 while true; do
+    echo
     read -p "Have you removed the Pi Sense HAT from the Raspberry Pi ? ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
