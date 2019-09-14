@@ -32,26 +32,15 @@ if [ ! -d "~/.ssh" ]; then
   chmod 700 ~/.ssh
 fi
 
-echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-echo "Updating SSH Config file $PYLAB_SSHCONFIG"
-echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+if [ ! -f ~/.ssh/id_rsa_python_lab ]; then 
+	echo
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "Generating SSH Key file ~/.ssh/id_rsa_python_lab"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo
 
-echo >> $PYLAB_SSHCONFIG
-echo "#Begin-PyLab $PYLAB_TIME" >> $PYLAB_SSHCONFIG
-echo "Host pylab-$PYLAB_LOGIN" >> $PYLAB_SSHCONFIG
-echo "    HostName $PYLAB_IPADDRESS" >> $PYLAB_SSHCONFIG
-echo "    User $PYLAB_LOGIN" >> $PYLAB_SSHCONFIG
-echo "    IdentityFile ~/.ssh/id_rsa_python_lab" >> $PYLAB_SSHCONFIG
-echo "#End-PyLab" >> $PYLAB_SSHCONFIG
-echo >> $PYLAB_SSHCONFIG
-
-echo
-echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo "Generating SSH Key file ~/.ssh/id_rsa_python_lab"
-echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo
-
-ssh-keygen -t rsa -N "" -b 4096 -f ~/.ssh/id_rsa_python_lab < /dev/tty
+	ssh-keygen -t rsa -N "" -b 4096 -f ~/.ssh/id_rsa_python_lab < /dev/tty
+fi
 
 echo
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
@@ -62,8 +51,30 @@ echo -e '\033[30;48;5;82mThe Raspberry Pi Password is raspberry \033[0m'
 echo
 echo -e '\033[30;48;5;82mThe password will NOT display as you type it \033[0m'
 echo -e '\033[30;48;5;82mWhen you have typed the password press ENTER \033[0m'
+echo
 echo -e '\033[30;48;5;82mYou may need to press ENTER twice \033[0m'
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo
 
 ssh-copy-id -i ~/.ssh/id_rsa_python_lab $PYLAB_LOGIN@$PYLAB_IPADDRESS < /dev/tty
+
+if [ $? == 0 ]; then
+	echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+	echo "Updating SSH Config file $PYLAB_SSHCONFIG"
+	echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+	echo
+
+	echo >> $PYLAB_SSHCONFIG
+	echo "#Begin-PyLab $PYLAB_TIME" >> $PYLAB_SSHCONFIG
+	echo "Host pylab-$PYLAB_LOGIN" >> $PYLAB_SSHCONFIG
+	echo "    HostName $PYLAB_IPADDRESS" >> $PYLAB_SSHCONFIG
+	echo "    User $PYLAB_LOGIN" >> $PYLAB_SSHCONFIG
+	echo "    IdentityFile ~/.ssh/id_rsa_python_lab" >> $PYLAB_SSHCONFIG
+	echo "#End-PyLab" >> $PYLAB_SSHCONFIG
+	echo >> $PYLAB_SSHCONFIG
+else 
+	echo
+	echo "Copy of the SSH Public Key to the Raspberry Pi failed"
+	echo
+fi
+
