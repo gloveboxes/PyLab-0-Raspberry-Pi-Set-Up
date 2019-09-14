@@ -78,4 +78,3 @@ else
 	echo
 fi
 
-read -p "Press ENTER to close" done < /dev/tty
