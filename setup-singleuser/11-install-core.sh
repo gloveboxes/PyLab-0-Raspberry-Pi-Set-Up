@@ -17,7 +17,7 @@ while true; do
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit 1;;
-        [Nn]* ) continue;;
+        [Nn]* ) echo "Update your Raspberry Pi, then restart this installation."; exit 1;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
     esac
 done
@@ -28,13 +28,15 @@ while true; do
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit 1;;
-        [Nn]* ) continue;;
+        [Nn]* ) echo "Power off your Raspberry Pi and remove the Pi Sense HAT (sudo halt)"; exit 1;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
     esac
 done
 
 while true; do
+    echo
     read -p "Name your Raspberry Pi: " RPI_NAME
+    echo
     read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
