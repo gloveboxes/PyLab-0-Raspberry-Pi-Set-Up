@@ -76,6 +76,8 @@ if ERRORLEVEL 1 (
 :updateconfig
 
     set PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab.pub
+	rem Next command does not work inside a conditional block
+	for /F "tokens=* USEBACKQ" %%F in (`where git`) do ( set gitpath=%%F ) 2>nul
 
     if not exist %USERPROFILE%\.ssh\NUL mkdir %USERPROFILE%\.ssh
 	
@@ -85,9 +87,6 @@ if ERRORLEVEL 1 (
 		echo Generating SSH Key file %USERPROFILE%\.ssh\id_rsa_python_lab
 		echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		echo(
-
-		rem Next command does not work inside a conditional block
-		for /F "tokens=* USEBACKQ" %%F in (`where git`) do ( set gitpath=%%F ) 2>nul
 
 		if %usegit% == "true" (
 		  echo Generating SSH Key with Git SSH
