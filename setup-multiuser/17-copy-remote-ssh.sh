@@ -9,3 +9,7 @@ do
     sudo cp -r /home/pi/.vscode-server /home/dev$i/.vscode-server
     sudo chown -R dev$i:dev$i /home/dev$i
 done
+
+echo "Rebooting Raspberry Pi"
+
+sudo reboot
