@@ -93,7 +93,7 @@ if ERRORLEVEL 1 (
 		  "%gitpath:~0,-13%\git-bash.exe" -c "ssh-keygen -t rsa -N '' -b 4096 -f ~/.ssh/id_rsa_python_lab"
 		) else (
 		  echo Generating SSH Key Windows SSH Client
-		  ssh-keygen -t rsa -b 4096 -N "" -f %PATHOFIDENTITYFILE%
+		  ssh-keygen -t rsa -b 4096 -N "" -f %USERPROFILE%\.ssh\id_rsa_python_lab
 		)	
 	)
 
