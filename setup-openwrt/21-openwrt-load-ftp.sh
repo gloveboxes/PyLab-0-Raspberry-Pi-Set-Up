@@ -1,6 +1,6 @@
 
-INSTALL_DIR=/mnt/sda2
-FTP_DIR=/mnt/sda2/lab
+INSTALL_DIR=~
+FTP_DIR=/ftp
 
 rm -r -f $FTP_DIR*
 mkdir -p $FTP_DIR/software/linux

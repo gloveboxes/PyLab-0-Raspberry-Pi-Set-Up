@@ -1,4 +1,4 @@
-INSTALL_DIR=/mnt/sda2
+INSTALL_DIR=~
 
 rm -r -f $INSTALL_DIR/PyLab
 git clone --depth=1 git://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git $INSTALL_DIR/PyLab
