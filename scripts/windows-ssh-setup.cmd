@@ -75,13 +75,13 @@ if ERRORLEVEL 1 (
 
 :updateconfig
 
-    set PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab.pub
+    set PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab
 	rem Next command does not work inside a conditional block
 	for /F "tokens=* USEBACKQ" %%F in (`where git`) do ( set gitpath=%%F ) 2>nul
 
     if not exist %USERPROFILE%\.ssh\NUL mkdir %USERPROFILE%\.ssh
 	
-	if not exist %PATHOFIDENTITYFILE% (
+	if not exist %PATHOFIDENTITYFILE%.pub (
 		echo(
 		echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		echo Generating SSH Key file %USERPROFILE%\.ssh\id_rsa_python_lab
@@ -98,7 +98,6 @@ if ERRORLEVEL 1 (
 	)
 
     set /p PYLAB_KEY=<%USERPROFILE%\.ssh\id_rsa_python_lab.pub
-	set PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab.pub
 	set REMOTEHOST=%PYLAB_LOGIN%@%PYLAB_IPADDRESS%
 
     echo(
