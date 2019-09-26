@@ -12,6 +12,7 @@ while $RUNNING; do
   case $([ -f $STATE ] && cat $STATE) in
    INIT)
         while true; do
+            echo "This script assumes the USB3 SSD Drive is mounted at /dev/sda" 
             read -p "Do you wish to enable USB3 SSD Boot Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) BOOT_USB3="true"; break;;
@@ -24,6 +25,7 @@ while $RUNNING; do
         echo "UPDATE" > $STATE
 
         if [ "$BOOT_USB3" == "true" ]; then
+            echo -e "\np = print partitions, \nd = delete a partition, \nn = new partition -> create a primary partition, \nw = write the partition information to disk, \nq = quit\n"
             sudo fdisk /dev/sda
             sudo mkfs.ext4 /dev/sda1
             sudo mkdir /media/usbdrive
