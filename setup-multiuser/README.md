@@ -27,85 +27,18 @@ Raspberry Pi Buster Lite will not boot with the Raspberry Pi Sense HAT attached.
 sudo apt update && sudo apt upgrade -y && sudo reboot
 ``` -->
 
-## Booting from a USB 3 Flash or SSD Drive
+## Raspberry Pi Install Bootstrap
 
-1. Plug in your USB 3 drive, then list your drives. If you only plugged in one USB drive then it's highly likely your drive with be /dev/sda.
+Start an SSH session to the Raspberry Pi.
 
-    ```bash
-    sudo fdisk -l
-    ```
-
-2. Delete existing partitions and create a new primary partition on the USB drive.
-
-    ```bash
-    sudo fdisk /dev/sda
-    ```
-
-    **fdisk commands**
-
-    - p = print partitions
-    - d = delete a partition
-    - n = new partition - create a primary partition
-    - w = write the partition information to disk
-
-3. Format the newly created partition
-
-    ```bash
-    sudo mkfs.ext4 /dev/sda1
-    ```
-
-4. Create a mount point, mount the USB 3 drive, copy the Operating System files to the USB drive, and amend the cmdline.txt to enable booting from the USB 3 drive
-
-    ```bash
-    sudo mkdir /media/usbdrive && \
-    sudo mount /dev/sda1 /media/usbdrive && \
-    sudo rsync -avx / /media/usbdrive && \
-    sudo sed -i '$s/$/ root=\/dev\/sda1 rootfstype=ext4 rootwait/' /boot/cmdline.txt && \
-    sudo reboot
-    ```
-
-## Install the Fan SHIM Software
-
-[Fan SHIM](https://shop.pimoroni.com/products/fan-shim) installation.
+Run the following command to start the installation process.
 
 ```bash
-sudo apt install -y git sudo python3-pip vsftpd && \
-git clone https://github.com/pimoroni/fanshim-python && \
-cd fanshim-python && \
-sudo ./install.sh && \
-cd examples && \
-sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
+bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/setup.sh)"
 ```
 
-## Install Set UP Prerequisites
 
-```bash
-sudo apt update && \
-curl -sSL get.docker.com | sh && sudo usermod pi -aG docker && \
-sudo apt install -y git && \
-sudo apt update && \
-sudo apt upgrade -y && \
-sudo reboot
-```
 
-## Clone PyLab to the Raspberry Pi
-
-Login to the Raspberry Pi and run the following commands.
-
-```bash
-rm -r -f ~/PyLab && \
-git clone --depth=1 https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup-multiuser/setup/*.sh && \
-cd ~/PyLab/Lab-setup-multiuser/setup
-```
-
-## End to End Set Up
-
-Running this script will set up the PyLab lab **except** for the Remote SSH Components that must be installed separately (see next step).
-
-```bash
-~/PyLab/Lab-setup/setup/00-setup-multiuser.sh
-```
 
 ## Install Remote SSH on the Raspberry Pi
 
