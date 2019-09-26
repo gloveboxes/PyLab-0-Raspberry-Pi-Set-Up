@@ -8,6 +8,8 @@ RUNNING=true
 # Add to .bashrc so install process auto restarts after reboots
 echo "~/PyLab/setup-multiuser/10-Install-prerequisites.sh" >> ~/.bashrc
 
+echo -e "\nThis is a mult-stage installer.\nSome stages require a reboot.\nInstallation will automatically start the next installation stage.\n"
+
 while $RUNNING; do
   case $([ -f $STATE ] && cat $STATE) in
    INIT)
@@ -68,7 +70,6 @@ while $RUNNING; do
         ;;
 
     FANSHIM)
-        echo "Reached FANSHIM State."
         while true; do
             read -p "Do you wish to Install Fan SMIM Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
