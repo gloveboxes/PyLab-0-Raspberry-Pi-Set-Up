@@ -5,11 +5,14 @@ OS_UPDATE="false"
 STATE=~/.PyLabState
 RUNNING=true
 
+# Add to .bashrc so install process auto restarts after reboots
+echo "~/PyLab/setup-multiuser/10-Install-prerequisites.sh" >> ~/.bashrc
+
 while $RUNNING; do
   case $([ -f $STATE ] && cat $STATE) in
    INIT)
         while true; do
-            read -p "Do you wish to enable USB3 SSD Boot Support ?' ([Y]es/[N]o/[Q]uit)" yn
+            read -p "Do you wish to enable USB3 SSD Boot Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) BOOT_USB3="true"; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
@@ -33,7 +36,7 @@ while $RUNNING; do
 
     UPDATE)
         while true; do
-            read -p "Do you wish to update the Raspberry Pi Operating System. The Raspberry Pi will reboot (Recommended) ?' ([Y]es/[N]o/[Q]uit)" yn
+            read -p "Do you wish to update the Raspberry Pi Operating System. The Raspberry Pi will reboot (Recommended) [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) OS_UPDATE="true"; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
@@ -51,7 +54,7 @@ while $RUNNING; do
     RENAME)
         while true; do
             read -p "Name your Raspberry Pi: " RPI_NAME
-            read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
+            read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
@@ -65,7 +68,7 @@ while $RUNNING; do
     FANSHIM)
         echo "Reached FANSHIM State."
         while true; do
-            read -p "Do you wish to Install Fan SMIM Support ?' ([Y]es/[N]o/[Q]uit)" yn
+            read -p "Do you wish to Install Fan SMIM Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) INSTALL_FAN_SHIM="true"; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
@@ -86,7 +89,6 @@ while $RUNNING; do
       ;;    
 
     BREAK)
-      echo "Reaching BREAK State. Getting out of loop."
       RUNNING=false
       ;;
     *)
@@ -97,3 +99,5 @@ while $RUNNING; do
 done
 
 rm $STATE
+# remove install process from .bashrc
+sed --in-place '/~\/PyLab\/setup-multiuser\/10-Install-prerequisites.sh/d' ~/.bashrc
