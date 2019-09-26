@@ -36,7 +36,7 @@ while $RUNNING; do
 
     UPDATE)
         while true; do
-            read -p "Do you wish to update the Raspberry Pi Operating System. The Raspberry Pi will reboot (Recommended) [yes(y), no(n), or quit(q)] ?" yn
+            read -p "Do you wish to update the Raspberry Pi Operating System (Recommended) [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) OS_UPDATE="true"; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
