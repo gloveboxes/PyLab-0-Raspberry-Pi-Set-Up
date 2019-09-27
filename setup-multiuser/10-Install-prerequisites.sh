@@ -102,7 +102,7 @@ while $RUNNING; do
         echo "BREAK" > $STATE
 
         if [ "$INSTALL_FAN_SHIM" = true ]; then
-            sudo apt install python3-pip
+            sudo apt install -y python3-pip
             git clone https://github.com/pimoroni/fanshim-python && \
             cd fanshim-python && \
             sudo ./install.sh && \
