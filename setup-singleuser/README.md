@@ -29,3 +29,10 @@ bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-P
 ## Installation Process
 
 When prompted, select **Single User**, then follow the installation process.
+
+## Users Created
+
+When the installation has completed login to the Raspberry Pi with the following creditentials:
+
+    Login name: dev01
+    Password: raspberry
