@@ -16,3 +16,4 @@ $LAB_DIR/15-copy-lab.sh
 $LAB_DIR/16-build-images.sh
 # $LAB_DIR/17-copy-remote-ssh.sh
 
+sudo halt

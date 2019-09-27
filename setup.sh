@@ -24,6 +24,7 @@ sudo chmod +x ~/PyLab/setup-multiuser/*.sh
 sudo chmod +x ~/PyLab/setup-singleuser/*.sh
 
 while true; do
+    echo ""
     read -p "Single or Multi user set up? ([S]ingle, [M]ulti), [Q]uit: " PyLab_Setup_Mode
     case $PyLab_Setup_Mode in
         [Ss]* ) break;;
@@ -48,4 +49,3 @@ echo "Disconnect the Raspberry Pi power."
 echo "Attach the Raspberry Pi Sense HAT if you have one."
 echo "Restart."
 
-sudo halt
