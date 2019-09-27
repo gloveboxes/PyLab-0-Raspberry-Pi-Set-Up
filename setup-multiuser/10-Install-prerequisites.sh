@@ -7,8 +7,8 @@ STATE=~/.PyLabState
 RUNNING=true
 
 # remove then add to .bashrc to auto restart install process on login
-sed --in-place '/~\/PyLab\/setup-multiuser\/10-Install-prerequisites.sh/d' ~/.bashrc
-echo "~/PyLab/setup-multiuser/10-Install-prerequisites.sh" >> ~/.bashrc
+sed --in-place '/~\/PyLab\/setup-multiuser\/setup.sh/d' ~/.bashrc
+echo "~/PyLab/setup-multiuser/setup.sh" >> ~/.bashrc
 
 echo -e "\n\nThis is a mult-stage installer.\nSome stages require a reboot.\nInstallation will automatically restart.\n\n"
 
@@ -122,4 +122,4 @@ done
 
 rm $STATE
 # remove install process from .bashrc
-sed --in-place '/~\/PyLab\/setup-multiuser\/10-Install-prerequisites.sh/d' ~/.bashrc
+sed --in-place '/~\/PyLab\/setup-multiuser\/setup.sh/d' ~/.bashrc
