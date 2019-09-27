@@ -18,6 +18,22 @@ while $RUNNING; do
     INIT)
 
         while true; do
+            echo
+            read -p "Do you wish to install Multi User Mode PyLab ?' ([Y]es/[N]o/[Q]uit)" yn
+            case $yn in
+                [Yy]* ) break;;
+                [Qq]* ) RUNNING=false; exit 1;;
+                [Nn]* ) RUNNING=false; exit 1;;
+                * ) echo "Please answer yes(y), no(n), or quit(q).";;
+            esac
+        done
+
+        echo "RENAME" > $STATE
+        ;;
+
+    RENAME)
+
+        while true; do
             read -p "Do you wish to rename your Raspberry Pi (Recommended) [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) RENAME=true; break;;
@@ -47,7 +63,7 @@ while $RUNNING; do
 
    SSD)
         while true; do
-            echo -e "\nThis script assumes the USB3 SSD Drive is mounted at /dev/sda" 
+            echo -e "\nThis script assumes the USB3 SSD Drive is mounted at /dev/sda ready for partitioning and formating" 
             read -p "Do you wish to enable USB3 SSD Boot Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) BOOT_USB3=true; break;;

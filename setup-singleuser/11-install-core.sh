@@ -13,6 +13,19 @@ done
 
 while true; do
     echo
+    read -p "Name your Raspberry Pi: " RPI_NAME
+    echo
+    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
+    case $yn in
+        [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
+        [Qq]* ) exit 1;;
+        [Nn]* ) continue;;
+        * ) echo "Please answer yes(y), no(n), or quit(q).";;
+    esac
+done
+
+while true; do
+    echo
     read -p "Have you updated your Raspberry Pi (sudo apt update && sudo apt upgrade && sudo reboot)?' ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
@@ -33,18 +46,7 @@ while true; do
     esac
 done
 
-while true; do
-    echo
-    read -p "Name your Raspberry Pi: " RPI_NAME
-    echo
-    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
-    case $yn in
-        [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
-        [Qq]* ) exit 1;;
-        [Nn]* ) continue;;
-        * ) echo "Please answer yes(y), no(n), or quit(q).";;
-    esac
-done
+
 
 sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
 
