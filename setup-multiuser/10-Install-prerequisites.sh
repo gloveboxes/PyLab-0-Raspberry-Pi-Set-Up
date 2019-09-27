@@ -6,7 +6,8 @@ RENAME=false
 STATE=~/.PyLabState
 RUNNING=true
 
-# Add to .bashrc so install process auto restarts after reboots
+# remove then add to .bashrc to auto restart install process on login
+sed --in-place '/~\/PyLab\/setup-multiuser\/10-Install-prerequisites.sh/d' ~/.bashrc
 echo "~/PyLab/setup-multiuser/10-Install-prerequisites.sh" >> ~/.bashrc
 
 echo -e "\n\nThis is a mult-stage installer.\nSome stages require a reboot.\nInstallation will automatically restart.\n\n"
