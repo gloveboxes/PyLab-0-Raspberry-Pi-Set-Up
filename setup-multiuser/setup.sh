@@ -26,6 +26,6 @@ echo
 echo
 echo "The Raspberry Pi will now shutdown."
 echo "Remove Power and attach the Pi Sense HAT."
-echo "Remember when you restart your Raspberry Pi that you renamed it."
+echo "Remember you may have renamed your Raspberry Pi."
 
 sudo halt
