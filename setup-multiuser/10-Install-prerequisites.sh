@@ -27,7 +27,7 @@ while $RUNNING; do
 
         echo "UPDATE" > $STATE
 
-        if [ $BOOT_USB3 ]; then
+        if [ "$BOOT_USB3" = true ]; then
             echo -e "\np = print partitions, \nd = delete a partition, \nn = new partition -> create a primary partition, \nw = write the partition information to disk, \nq = quit\n"
             sudo fdisk /dev/sda
             sudo mkfs.ext4 /dev/sda1
@@ -51,7 +51,7 @@ while $RUNNING; do
         done
 
         echo "RENAME" > $STATE
-        if [ $OS_UPDATE ]; then
+        if [ "$OS_UPDATE" = true ]; then
             sudo apt update && sudo apt upgrade -y && sudo reboot
         fi
       ;;
@@ -68,7 +68,7 @@ while $RUNNING; do
             esac
         done
 
-        if [ $RENAME ]; then
+        if [ "$RENAME" = true ]; then
 
             while true; do
                 read -p "Name your Raspberry Pi: " RPI_NAME
@@ -98,7 +98,7 @@ while $RUNNING; do
 
         echo "BREAK" > $STATE
 
-        if [ $INSTALL_FAN_SHIM ]; then
+        if [ "$INSTALL_FAN_SHIM" = true ]; then
             sudo apt install -y git sudo python3-pip vsftpd && \
             git clone https://github.com/pimoroni/fanshim-python && \
             cd fanshim-python && \
