@@ -1,6 +1,6 @@
-INSTALL_FAN_SHIM="false"
-BOOT_USB3="false"
-OS_UPDATE="false"
+INSTALL_FAN_SHIM=false
+BOOT_USB3=false
+OS_UPDATE=false
 RENAME=false
 
 STATE=~/.PyLabState
@@ -18,7 +18,7 @@ while $RUNNING; do
             echo -e "This script assumes the USB3 SSD Drive is mounted at /dev/sda\n" 
             read -p "Do you wish to enable USB3 SSD Boot Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
-                [Yy]* ) BOOT_USB3="true"; break;;
+                [Yy]* ) BOOT_USB3=true; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
                 [Nn]* ) break;;
                 * ) echo "Please answer yes(y), no(n), or quit(q).";;
@@ -27,7 +27,7 @@ while $RUNNING; do
 
         echo "UPDATE" > $STATE
 
-        if [ "$BOOT_USB3" == "true" ]; then
+        if [ $BOOT_USB3 ]; then
             echo -e "\np = print partitions, \nd = delete a partition, \nn = new partition -> create a primary partition, \nw = write the partition information to disk, \nq = quit\n"
             sudo fdisk /dev/sda
             sudo mkfs.ext4 /dev/sda1
@@ -43,7 +43,7 @@ while $RUNNING; do
         while true; do
             read -p "Do you wish to update the Raspberry Pi Operating System (Recommended) [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
-                [Yy]* ) OS_UPDATE="true"; break;;
+                [Yy]* ) OS_UPDATE=true; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
                 [Nn]* ) break;;
                 * ) echo "Please answer yes(y), no(n), or quit(q).";;
@@ -51,7 +51,7 @@ while $RUNNING; do
         done
 
         echo "RENAME" > $STATE
-        if [ "$OS_UPDATE" == "true" ]; then
+        if [ $OS_UPDATE ]; then
             sudo apt update && sudo apt upgrade -y && sudo reboot
         fi
       ;;
@@ -89,7 +89,7 @@ while $RUNNING; do
         while true; do
             read -p "Do you wish to Install Fan SMIM Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
-                [Yy]* ) INSTALL_FAN_SHIM="true"; break;;
+                [Yy]* ) INSTALL_FAN_SHIM=true; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
                 [Nn]* ) break;;
                 * ) echo "Please answer yes(y), no(n), or quit(q).";;
@@ -98,7 +98,7 @@ while $RUNNING; do
 
         echo "BREAK" > $STATE
 
-        if [ "$INSTALL_FAN_SHIM" == "true" ]; then
+        if [ $INSTALL_FAN_SHIM ]; then
             sudo apt install -y git sudo python3-pip vsftpd && \
             git clone https://github.com/pimoroni/fanshim-python && \
             cd fanshim-python && \
