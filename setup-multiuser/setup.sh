@@ -1,9 +1,5 @@
 #!/bin/bash
 
-rm ~/.PyLabState
-# remove install process from .bashrc
-sed --in-place '/~\/PyLab\/setup-multiuser\/10-Install-prerequisites.sh/d' ~/.bashrc
-
 LAB_DIR=~/PyLab/setup-multiuser
 
 $LAB_DIR/10-Install-prerequisites.sh
