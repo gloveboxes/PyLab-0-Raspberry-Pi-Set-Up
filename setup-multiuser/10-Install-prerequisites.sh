@@ -47,7 +47,7 @@ while $RUNNING; do
 
    SSD)
         while true; do
-            echo -e "This script assumes the USB3 SSD Drive is mounted at /dev/sda\n" 
+            echo -e "\nThis script assumes the USB3 SSD Drive is mounted at /dev/sda" 
             read -p "Do you wish to enable USB3 SSD Boot Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) BOOT_USB3=true; break;;
