@@ -19,7 +19,7 @@ while $RUNNING; do
 
         while true; do
             echo
-            read -p "Do you wish to install Multi User Mode PyLab ?' ([Y]es/[N]o/[Q]uit)" yn
+            read -p "Do you wish to install Multi User Mode PyLab [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) break;;
                 [Qq]* ) RUNNING=false; exit 1;;
