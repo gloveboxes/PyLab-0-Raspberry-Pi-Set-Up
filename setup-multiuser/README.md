@@ -34,15 +34,19 @@ Run the following command to start the installation process.
 bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/setup.sh)"
 ```
 
+## PyLab Users
+
+The Installation process will create 20 login names; **dev01..dev20**. The password for each login name is **raspberry**.
+
 ## Install Remote SSH on the Raspberry Pi
 
-It is critical that Lab attendees install the same version of VS Code (from the FTP Server) so it matches the VS Code Server Components installed on the Raspberry Pi. Otherwise 200MB per User will be downloaded when they start a Remote SSH Session.
+It is critical that Lab attendees install the same version of VS Code (from the FTP Server) so it matches the VS Code Server Components installed on the Raspberry Pi. Otherwise 150MB per user will be downloaded when they start a Remote SSH Session.
 
 From your desktop:
 
 1. From your internet browser, link to **FTP://\<raspberry pi name>.local**, download and install Visual Studio Code.
 
-2. Install Remote SSH and Python Extensions
+2. Installing the Remote SSH and Python Extensions
 
     ```bash
     code --install-extension ms-vscode-remote.remote-ssh
