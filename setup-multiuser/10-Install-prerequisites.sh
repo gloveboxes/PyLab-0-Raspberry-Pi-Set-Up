@@ -8,13 +8,13 @@ RUNNING=true
 # Add to .bashrc so install process auto restarts after reboots
 echo "~/PyLab/setup-multiuser/10-Install-prerequisites.sh" >> ~/.bashrc
 
-echo -e "\n\nThis is a mult-stage installer.\nSome stages require a reboot.\nInstallation will automatically restart."
+echo -e "\n\nThis is a mult-stage installer.\nSome stages require a reboot.\nInstallation will automatically restart.\n\n"
 
 while $RUNNING; do
   case $([ -f $STATE ] && cat $STATE) in
    INIT)
         while true; do
-            echo -e "\n\nThis script assumes the USB3 SSD Drive is mounted at /dev/sda\n" 
+            echo -e "This script assumes the USB3 SSD Drive is mounted at /dev/sda\n" 
             read -p "Do you wish to enable USB3 SSD Boot Support [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
                 [Yy]* ) BOOT_USB3="true"; break;;
@@ -80,6 +80,8 @@ while $RUNNING; do
             esac
         done
 
+        echo "BREAK" > $STATE
+
         if [ "$INSTALL_FAN_SHIM" == "true" ]; then
             sudo apt install -y git sudo python3-pip vsftpd && \
             git clone https://github.com/pimoroni/fanshim-python && \
@@ -88,7 +90,7 @@ while $RUNNING; do
             cd examples && \
             sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
         fi
-      echo "BREAK" > $STATE
+
       ;;    
 
     BREAK)
