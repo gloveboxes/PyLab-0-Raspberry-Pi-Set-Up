@@ -10,9 +10,6 @@
 |Language| Python|
 |Date|As of September, 2019|
 
-
-<!-- [Setting up Ethernet Access Point](wifirouter.md) -->
-
 [OpenWRT and the Linksys WRT 1900 ACS Router](https://github.com/gloveboxes/Linksys-WRT-1900-ACS-with-Huawei-E3372-Hi-Link-LTE-Dongle)
 
 ## Raspberry Pi Sense HAT
