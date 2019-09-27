@@ -1,6 +1,7 @@
 INSTALL_FAN_SHIM="false"
 BOOT_USB3="false"
 OS_UPDATE="false"
+RENAME=false
 
 STATE=~/.PyLabState
 RUNNING=true
@@ -56,16 +57,31 @@ while $RUNNING; do
       ;;
 
     RENAME)
+
         while true; do
-            read -p "Name your Raspberry Pi: " RPI_NAME
-            read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct [yes(y), no(n), or quit(q)] ?" yn
+            read -p "Do you wish to rename your Raspberry Pi (Recommended) [yes(y), no(n), or quit(q)] ?" yn
             case $yn in
-                [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
+                [Yy]* ) RENAME=true; break;;
                 [Qq]* ) RUNNING=false; exit 1;;
-                [Nn]* ) continue;;
+                [Nn]* ) break;;
                 * ) echo "Please answer yes(y), no(n), or quit(q).";;
             esac
         done
+
+        if [ $RENAME ]; then
+
+            while true; do
+                read -p "Name your Raspberry Pi: " RPI_NAME
+                read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct [yes(y), no(n), or quit(q)] ?" yn
+                case $yn in
+                    [Yy]* ) sudo raspi-config nonint do_hostname $RPI_NAME; break;;
+                    [Qq]* ) RUNNING=false; exit 1;;
+                    [Nn]* ) continue;;
+                    * ) echo "Please answer yes(y), no(n), or quit(q).";;
+                esac
+            done
+        fi
+
         echo "FANSHIM" > $STATE
         ;;
 
