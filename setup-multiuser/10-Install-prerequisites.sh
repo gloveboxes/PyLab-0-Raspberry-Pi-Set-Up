@@ -107,7 +107,7 @@ while $RUNNING; do
             sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
         fi
 
-      ;;    
+        ;;    
 
     BREAK)
       RUNNING=false
