@@ -50,11 +50,34 @@ while $RUNNING; do
             esac
         done
 
-        echo "RENAME" > $STATE
+        echo "FANSHIM" > $STATE
         if [ "$OS_UPDATE" = true ]; then
             sudo apt update && sudo apt upgrade -y && sudo reboot
         fi
-      ;;
+      ;;    
+
+    FANSHIM)
+        while true; do
+            read -p "Do you wish to Install Fan SMIM Support [yes(y), no(n), or quit(q)] ?" yn
+            case $yn in
+                [Yy]* ) INSTALL_FAN_SHIM=true; break;;
+                [Qq]* ) RUNNING=false; exit 1;;
+                [Nn]* ) break;;
+                * ) echo "Please answer yes(y), no(n), or quit(q).";;
+            esac
+        done
+
+        echo "RENAME" > $STATE
+
+        if [ "$INSTALL_FAN_SHIM" = true ]; then
+            git clone https://github.com/pimoroni/fanshim-python && \
+            cd fanshim-python && \
+            (sudo ./install.sh) && \
+            cd examples && \
+            (sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2)
+        fi
+
+        ;;    
 
     RENAME)
 
@@ -67,6 +90,8 @@ while $RUNNING; do
                 * ) echo "Please answer yes(y), no(n), or quit(q).";;
             esac
         done
+
+        echo "BREAK" > $STATE
 
         if [ "$RENAME" = true ]; then
 
@@ -82,32 +107,8 @@ while $RUNNING; do
             done
         fi
 
-        echo "FANSHIM" > $STATE
+        
         ;;
-
-    FANSHIM)
-        while true; do
-            read -p "Do you wish to Install Fan SMIM Support [yes(y), no(n), or quit(q)] ?" yn
-            case $yn in
-                [Yy]* ) INSTALL_FAN_SHIM=true; break;;
-                [Qq]* ) RUNNING=false; exit 1;;
-                [Nn]* ) break;;
-                * ) echo "Please answer yes(y), no(n), or quit(q).";;
-            esac
-        done
-
-        echo "BREAK" > $STATE
-
-        if [ "$INSTALL_FAN_SHIM" = true ]; then
-            sudo apt install -y git sudo python3-pip vsftpd && \
-            git clone https://github.com/pimoroni/fanshim-python && \
-            cd fanshim-python && \
-            sudo ./install.sh && \
-            cd examples && \
-            sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
-        fi
-
-        ;;    
 
     BREAK)
       RUNNING=false
