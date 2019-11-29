@@ -24,6 +24,7 @@ do
         echo "$i) "  ${options[$i-1]}
     done
 
+    echo
     read -p "Option number: " selection
 
     re='^[0-9]+$'
