@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./cleanup-lab.sh
+
 for i in {01..20}
 do
     sudo useradd  -p $(openssl passwd -1 raspberry) dev$i -G i2c,users,docker -m

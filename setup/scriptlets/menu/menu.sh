@@ -5,13 +5,17 @@ scriptDir="~/PyLab-0-Raspberry-Pi-Set-Up-master/setup/scriptlets"
 declare -a options=( \
             "Update the System" \
             "Refresh PyLab" \
-            "Refresh VS Code Server"
+            "Copy VS Code Server to all users"
+            "Create PyLab Users"
+            "Delete PyLab and ALL Dev users"
             )
 
 declare -a cmds=(\
             "sudo apt update && sudo apt upgrade -y" \
             "$scriptDir/common/load-ftp.sh && $scriptDir/common/copy-lab-to-user.sh" \
             "$scriptDir/multiuser/copy-remote-ssh.sh"
+            "$scriptDir/multiuser/create-users.sh" 
+            "$scriptDir/multiuser/cleanup-lab.sh"
             )
 
 optionslength=${#options[@]}
