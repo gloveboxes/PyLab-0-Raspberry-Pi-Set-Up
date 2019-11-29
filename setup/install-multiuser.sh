@@ -103,7 +103,7 @@ function GetIpAddress() {
     while :
     do
         echo ""
-        read -p "Enter the Raspberry Pi IP Address for the new Kubernetes Master: " ipaddress
+        read -p "Enter the Raspberry Pi IP Address for the new PyLab device: " ipaddress
         if valid_ip $ipaddress
         then
             ping $ipaddress -c 2 > /dev/null
@@ -121,7 +121,7 @@ function GetIpAddress() {
 
 function Generate_SSH() {
 
-    if [ ! -f ~/.ssh/id_rsa_rpi_kube_cluster ]; then 
+    if [ ! -f ~/.ssh/id_rsa_rpi_pylab ]; then 
 
         echo -e "\nGenerating SSH Key for Raspberry Pi Kubernetes Cluster Automated Installation\n"
 
@@ -131,7 +131,7 @@ function Generate_SSH() {
             sudo chmod -R 700 ~/.ssh
         fi
 
-        ssh-keygen -t rsa -N "" -b 4096 -f ~/.ssh/id_rsa_rpi_kube_cluster
+        ssh-keygen -t rsa -N "" -b 4096 -f ~/.ssh/id_rsa_rpi_pylab
       
     fi
 
@@ -142,7 +142,7 @@ function Generate_SSH() {
     ssh-keygen -f "/home/pi/.ssh/known_hosts" -R "$ipaddress" &> /dev/null
     ssh-keyscan -H $ipaddress >> ~/.ssh/known_hosts 2> /dev/null  # https://www.techrepublic.com/article/how-to-easily-add-an-ssh-fingerprint-to-your-knownhosts-file-in-linux/
 
-    ssh-copy-id -i ~/.ssh/id_rsa_rpi_kube_cluster pi@$ipaddress 
+    ssh-copy-id -i ~/.ssh/id_rsa_rpi_pylab pi@$ipaddress 
 }
 
 GetIpAddress

@@ -9,7 +9,7 @@ function Confirm() {
     echo -e "from the internet. Ensure they are from a trusted source.\n"
 
     echo -e "If you want to see what this script does before running it,"
-    echo -e "you should run: 'curl https://raw.githubusercontent.com/gloveboxes/Raspberry-Pi-Kubernetes-Cluster/master/setup.sh'\n"
+    echo -e "you should run: 'curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/master/setup.sh'\n"
 
 
     printf "Do you wish to continue? [y/N]: "
@@ -54,7 +54,7 @@ while true; do
 done
 
 if [ $PyLab_Setup_Mode = 'M' ] || [ $PyLab_Setup_Mode = 'm' ]; then   
-    ./setup/install-multiuser.sh
+    ./install-multiuser.sh
 else 
-    ./setup/install-singleuser.sh
+    ./install-singleuser.sh
 fi

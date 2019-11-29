@@ -45,6 +45,6 @@ echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
 sudo systemctl reload vsftpd
 sudo systemctl restart vsftpd
 
-sudo raspi-config nonint do_hostname 'k8smaster'
+sudo raspi-config nonint do_hostname $1
 
 sudo reboot

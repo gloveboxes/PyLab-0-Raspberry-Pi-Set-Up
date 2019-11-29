@@ -27,7 +27,7 @@ function valid_ip()
 
 
 function remote_cmd() {
-    ssh -i ~/.ssh/id_rsa_rpi_kube_cluster pi@$hostname $1
+    ssh -i ~/.ssh/id_rsa_rpi_pylab pi@$hostname $@
 }
 
 
@@ -186,10 +186,10 @@ fi
 
 # Update, set config, rename and reboot
 echo -e "\nUpdating System, configuring prerequisites, renaming, rebooting\n"
-remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh"
+remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
 wait_for_ready
 
-# Set up Log 2 RAM
+echo -e "\nInstalling up Log2Ram\n"
 remote_cmd "$SCRIPTS_DIR/common/install-log2ram.sh"
 wait_for_ready
 
