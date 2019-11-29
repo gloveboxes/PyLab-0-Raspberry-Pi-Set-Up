@@ -27,9 +27,16 @@ do
     do
         echo "$i) "  ${options[$i-1]}
     done
+    echo 
+    echo "Q) Quit"
 
     echo
     read -p "Option number: " selection
+
+    if [ $selection == "Q" ] || [ $selection == "q" ]
+    then
+        exit
+    fi
 
     re='^[0-9]+$'
     if ! [[ $selection =~ $re ]] ; then
