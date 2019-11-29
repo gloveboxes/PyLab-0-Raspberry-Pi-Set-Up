@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo -e "\nInstalling Docker\n"
 # Install Docker
 sudo docker --version
 if [ $? -ne 0 ]

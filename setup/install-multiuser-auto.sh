@@ -215,10 +215,10 @@ echo "Download VS Code for Linux, macOS, and Windows"
 remote_cmd "$SCRIPTS_DIR/common/load-vs-code.sh"
 
 echo "Creating 20 user profiles on the Raspberry Pi"
-remote_cmd "$SCRIPTS_DIR/common/create-users.sh"
+remote_cmd "$SCRIPTS_DIR/multiuser/create-users.sh"
 
 echo "Copying PyLab Projects to each user"
-remote_cmd "$SCRIPTS_DIR/common/copy-lab-to-user.sh"
+remote_cmd "$SCRIPTS_DIR/multiuser/copy-lab-to-user.sh"
 
 echo "Build PyLab Docker Images"
 remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
