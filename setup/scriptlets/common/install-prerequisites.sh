@@ -2,8 +2,7 @@
 
 while :
 do
-    echo -e "Updating OS and Installing required Libraries"
-    # sudo apt update && sudo apt upgrade -y && sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
+    echo -e "Installing required Libraries"
     sudo apt update && sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
     if [ $? -eq 0 ]
     then
@@ -52,5 +51,3 @@ sudo systemctl reload vsftpd
 sudo systemctl restart vsftpd
 
 sudo raspi-config nonint do_hostname $1
-
-sudo reboot

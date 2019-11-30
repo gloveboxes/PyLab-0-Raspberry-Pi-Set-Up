@@ -190,12 +190,22 @@ then
 fi
 
 # Update, set config, rename and reboot
-echo -e "\nUpdating System, configuring prerequisites, renaming, rebooting\n"
+# echo -e "\nUpdating Raspberry Pi Operating System\n"
+# remote_cmd "$SCRIPTS_DIR/common/update-system.sh"
+# reboot_wait_ready
+
+
+# Update, set config, rename and reboot
+echo -e "\nInstalling prerequisite libraries, configuring, renaming, and rebooting\n"
 remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
-wait_for_ready
+reboot_wait_ready
 
 echo -e "\nInstalling up Log2Ram\n"
 remote_cmd "$SCRIPTS_DIR/common/install-log2ram.sh"
+reboot_wait_ready
+
+# Set up Wifi Access Point
+remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
 reboot_wait_ready
 
 if $fanSHIM
@@ -222,13 +232,7 @@ remote_cmd "$SCRIPTS_DIR/multiuser/create-users.sh"
 echo "Copying PyLab Projects to each user"
 remote_cmd "$SCRIPTS_DIR/multiuser/copy-lab-to-user.sh"
 
-# echo "Build PyLab Docker Images"
-# remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
-
-
-# Set up Wifi Access Point
-remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
-reboot_wait_ready
-
+echo "Build PyLab Docker Images"
+remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
 
 echo "Set up completed"
