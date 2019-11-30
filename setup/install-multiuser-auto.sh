@@ -201,7 +201,6 @@ wait_for_ready
 echo -e "\nInstalling up Log2Ram\n"
 remote_cmd "$SCRIPTS_DIR/common/install-log2ram.sh"
 reboot_wait_ready
-# wait_for_ready
 
 if $fanSHIM
 then
@@ -209,11 +208,9 @@ then
   remote_cmd "$SCRIPTS_DIR/common/install-fanshim.sh"
 fi
 
-exit
-
 # Set up Wifi Access Point
 remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
-
+reboot_wait_ready
 exit
 
 # Install Docker
