@@ -3,7 +3,7 @@
 while :
 do
     echo -e "Updating OS and Installing required Libraries"
-    sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
+    sudo apt update && sudo apt upgrade -y && sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
     if [ $? -eq 0 ]
     then
         break
