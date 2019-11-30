@@ -2,6 +2,8 @@
 
 sudo apt install -y dnsmasq 
 
+sudo systemctl stop dnsmasq
+
 # Ethernet static IP
 echo 'interface wlan0' | sudo tee -a /etc/dhcpcd.conf > /dev/null
 echo 'static ip_address=192.168.4.1/24' | sudo tee -a /etc/dhcpcd.conf > /dev/null
