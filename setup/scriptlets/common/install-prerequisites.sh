@@ -26,6 +26,11 @@ sudo raspi-config nonint do_memory_split 16
 sudo chown :i2c /dev/i2c-1
 sudo chmod g+rw /dev/i2c-1
 
+# Begin Patch for Raspberry Pi Sense Hat on Buster Headless/lite
+sudo raspi-config nonint do_resolution 2 4
+sudo sed -i 's/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/g' /boot/config.txt
+# End Patch for Raspberry Pi Sense Hat on Buster Headless/lite
+
 # Disable hdmi to reduce power consumption
 sudo sed -i -e '$i \/usr/bin/tvservice -o\n' /etc/rc.local
 
