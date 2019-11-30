@@ -71,6 +71,11 @@ function wait_for_ready () {
   sleep 2
 }
 
+function reboot_wait_ready() {
+  remote_cmd "sudo reboot"
+  wait_for_ready
+}
+
 
 while getopts i:n:fxhu flag; do
   case $flag in
@@ -187,6 +192,7 @@ fi
 # Update, set config, rename and reboot
 echo -e "\nUpdating System, configuring prerequisites, renaming, rebooting\n"
 remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
+wait_for_ready
 
 # echo "Setting up networking"
 # remote_cmd "$SCRIPTS_DIR/multiuser/networking.sh"
@@ -194,7 +200,8 @@ remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
 
 echo -e "\nInstalling up Log2Ram\n"
 remote_cmd "$SCRIPTS_DIR/common/install-log2ram.sh"
-wait_for_ready
+reboot_wait_ready
+# wait_for_ready
 
 if $fanSHIM
 then
