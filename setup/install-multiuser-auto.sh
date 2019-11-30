@@ -205,6 +205,8 @@ fi
 # Set up Wifi Access Point
 remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
 
+exit
+
 # Install Docker
 echo "Installing Docker"
 remote_cmd "$SCRIPTS_DIR/common/install-docker.sh"
