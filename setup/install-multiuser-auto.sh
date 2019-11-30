@@ -183,9 +183,7 @@ then
   # then
     echo -e "\nEnabling 64bit Linux Kernel\n"
     remote_cmd 'echo "arm_64bit=1" | sudo tee -a /boot/config.txt > /dev/null'
-    remote_cmd 'sudo reboot'
-
-    wait_for_ready
+    reboot_wait_ready
   # fi
 fi
 
