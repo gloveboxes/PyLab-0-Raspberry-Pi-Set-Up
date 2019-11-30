@@ -189,10 +189,10 @@ then
   # fi
 fi
 
-# Update, set config, rename and reboot
-# echo -e "\nUpdating Raspberry Pi Operating System\n"
-# remote_cmd "$SCRIPTS_DIR/common/update-system.sh"
-# reboot_wait_ready
+#Update, set config, rename and reboot
+echo -e "\nUpdating Raspberry Pi Operating System\n"
+remote_cmd "$SCRIPTS_DIR/common/update-system.sh"
+reboot_wait_ready
 
 
 # Update, set config, rename and reboot
