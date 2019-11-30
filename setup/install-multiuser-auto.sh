@@ -187,6 +187,9 @@ fi
 # Update, set config, rename and reboot
 echo -e "\nUpdating System, configuring prerequisites, renaming, rebooting\n"
 remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
+
+echo "Setting up networking"
+remote_cmd "$SCRIPTS_DIR/multiuser/networking.sh"
 wait_for_ready
 
 echo -e "\nInstalling up Log2Ram\n"
@@ -217,12 +220,10 @@ remote_cmd "$SCRIPTS_DIR/multiuser/create-users.sh"
 echo "Copying PyLab Projects to each user"
 remote_cmd "$SCRIPTS_DIR/multiuser/copy-lab-to-user.sh"
 
-echo "Build PyLab Docker Images"
-remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
+# echo "Build PyLab Docker Images"
+# remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
 
 # Set up Wifi Access Point
 remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
-
-remote_cmd "sudo reboot"
 
 echo "Set up completed"
