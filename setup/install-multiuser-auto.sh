@@ -188,9 +188,9 @@ fi
 echo -e "\nUpdating System, configuring prerequisites, renaming, rebooting\n"
 remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
 
-echo "Setting up networking"
-remote_cmd "$SCRIPTS_DIR/multiuser/networking.sh"
-wait_for_ready
+# echo "Setting up networking"
+# remote_cmd "$SCRIPTS_DIR/multiuser/networking.sh"
+# wait_for_ready
 
 echo -e "\nInstalling up Log2Ram\n"
 remote_cmd "$SCRIPTS_DIR/common/install-log2ram.sh"
@@ -201,6 +201,9 @@ then
   echo -e "\nInstalling FanSHIM\n"
   remote_cmd "$SCRIPTS_DIR/common/install-fanshim.sh"
 fi
+
+# Set up Wifi Access Point
+remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
 
 # Install Docker
 echo "Installing Docker"
@@ -223,7 +226,6 @@ remote_cmd "$SCRIPTS_DIR/multiuser/copy-lab-to-user.sh"
 # echo "Build PyLab Docker Images"
 # remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
 
-# Set up Wifi Access Point
-remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
+
 
 echo "Set up completed"
