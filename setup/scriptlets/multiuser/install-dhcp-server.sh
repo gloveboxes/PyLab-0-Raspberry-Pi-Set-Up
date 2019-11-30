@@ -1,19 +1,19 @@
 #!/bin/bash
-sudo apt install  isc-dhcp-server
-sudo service isc-dhcp-server stop
 
+sudo apt install -y dnsmasq 
+
+# Ethernet static IP
 echo 'interface wlan0' | sudo tee -a /etc/dhcpcd.conf > /dev/null
-echo 'static ip_address=192.168.100.1/24' | sudo tee -a /etc/dhcpcd.conf > /dev/null
+echo 'static ip_address=192.168.4.1/24' | sudo tee -a /etc/dhcpcd.conf > /dev/null
 echo 'nohook wpa_supplicant' | sudo tee -a /etc/dhcpcd.conf > /dev/null
 sudo service dhcpcd restart
 
-# bind IPV4 to eth0
-sudo sed -i 's/INTERFACESv4=""/INTERFACESv4="wlan0"/g' /etc/default/isc-dhcp-server > /dev/null
-sudo sed -i 's/INTERFACESv6=""/INTERFACESv4="wlan0"/g' /etc/default/isc-dhcp-server > /dev/null
+# sudo ip link set wlan0 down && sudo ip link set wlan0 up 
+sleep 10
 
-# Append required dhcp config to system config
-~/PyLab-0-Raspberry-Pi-Set-Up-master/setup/scriptlets/multiuser/dhcpd.conf | sudo tee -a /etc/dhcp/dhcpd.conf > /dev/null
-
-echo -e "\nStarting DHCP Server\n"
-
-sudo service isc-dhcp-server start
+# Configure DHCP
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+echo 'interface=wlan0' | sudo tee -a /etc/dnsmasq.conf > /dev/null
+echo 'dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h' | sudo tee -a /etc/dnsmasq.conf > /dev/null
+sudo systemctl start dnsmasq
+sudo systemctl reload dnsmasq
