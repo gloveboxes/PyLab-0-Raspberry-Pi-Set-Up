@@ -16,6 +16,7 @@ sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 echo 'interface=wlan0' | sudo tee -a /etc/dnsmasq.conf > /dev/null
 echo 'dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h' | sudo tee -a /etc/dnsmasq.conf > /dev/null
 sudo systemctl start dnsmasq
+sudo systemctl reload dnsmasq
 
 # Configure Hostapd - Host Access Point
 cat ~/PyLab-0-Raspberry-Pi-Set-Up-master/setup/scriptlets/multiuser/hostapd.conf | sudo tee -a /etc/hostapd/hostapd.conf > /dev/null
