@@ -197,7 +197,6 @@ reboot_wait_ready
 # Update, set config, rename and reboot
 echo -e "\nInstalling prerequisite libraries, configuring, renaming, and rebooting\n"
 remote_cmd "$SCRIPTS_DIR/common/install-prerequisites.sh $raspberryPiName"
-reboot_wait_ready
 
 echo -e "\nInstalling up Log2Ram\n"
 remote_cmd "$SCRIPTS_DIR/common/install-log2ram.sh"
@@ -205,7 +204,6 @@ reboot_wait_ready
 
 # Set up DHCP Server
 remote_cmd "$SCRIPTS_DIR/multiuser/install-dhcp-server.sh"
-reboot_wait_ready
 
 # Set up Wifi Access Point
 remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
