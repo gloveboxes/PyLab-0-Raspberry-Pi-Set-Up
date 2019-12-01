@@ -204,9 +204,9 @@ reboot_wait_ready
 remote_cmd "$SCRIPTS_DIR/multiuser/install-dhcp-server.sh"
 reboot_wait_ready
 
-# Set up Wifi Access Point
-remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
-reboot_wait_ready
+# # Set up Wifi Access Point
+# remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
+# reboot_wait_ready
 
 if $fanSHIM
 then
@@ -234,5 +234,9 @@ remote_cmd "$SCRIPTS_DIR/multiuser/copy-lab-to-user.sh"
 
 echo "Build PyLab Docker Images"
 remote_cmd "$SCRIPTS_DIR/common/build-docker-images.sh"
+
+# Set up Wifi Access Point
+remote_cmd "$SCRIPTS_DIR/multiuser/install-wifi-access-point.sh"
+reboot_wait_ready
 
 echo "Set up completed"
