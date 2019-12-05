@@ -12,6 +12,7 @@ def shutdown():
         time.sleep(0.25)
         sense.clear()
 
+    sense.show_letter("X", (200, 0, 0))
     print('shutdown')
     os.system("halt -p")
 
