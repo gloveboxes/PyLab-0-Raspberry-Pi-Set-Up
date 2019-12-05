@@ -6,13 +6,18 @@ sense = SenseHat()
 lastpressed = 0
 
 def shutdown():
-    global lastpressed
-    delta = time.time() - lastpressed
-    print(delta)
-    if delta < 4:
-        sense.show_letter("X", (200,0,0))
-        print('shutdown')
-        os.system("halt -p")
+    sense.show_letter("X", (200,0,0))
+    print('shutdown')
+    os.system("halt -p")
+
+# def shutdown():
+#     global lastpressed
+#     delta = time.time() - lastpressed
+#     print(delta)
+#     if delta < 4:
+#         sense.show_letter("X", (200,0,0))
+#         print('shutdown')
+#         os.system("halt -p")
 
 
 def up():
@@ -21,7 +26,7 @@ def up():
 
 
 sense.stick.direction_middle = shutdown
-sense.stick.direction_up = up
+# sense.stick.direction_up = up
 
 
 while True:
