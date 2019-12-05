@@ -223,6 +223,9 @@ wait_for_ready
 echo "Installing Menu Utility"
 remote_cmd "$SCRIPTS_DIR/common/install-menu.sh"
 
+echo "Enabling Shutdown Sequence"
+remote_cmd "$SCRIPTS_DIR/common/setup-shutdown.sh"
+
 echo "Loading PyLab Projects to the Ftp Server"
 remote_cmd "$SCRIPTS_DIR/common/load-ftp.sh"
 
