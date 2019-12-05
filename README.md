@@ -52,7 +52,7 @@ bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-P
 
 ## Debugging Web and Docker Container Apps on a Raspberry Pi
 
-![](resources/rpi4-pi-sense-hat.jpg)
+![](resources/iot-hol-banner.png)
 
 - [PyLab 1: Raspberry Pi, Debugging a Python Internet of Things Application](https://gloveboxes.github.io/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/)
 - [PyLab 2: Raspberry Pi, Azure IoT Central, and Docker Container Debugging](https://gloveboxes.github.io/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/)
