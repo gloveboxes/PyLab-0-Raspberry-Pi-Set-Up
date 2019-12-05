@@ -10,6 +10,7 @@ def shutdown():
     delta = time.time() - lastpressed
     print(delta)
     if delta < 4:
+        sense.show_letter("X", (200,0,0))
         print('shutdown')
         os.system("halt -p")
 
