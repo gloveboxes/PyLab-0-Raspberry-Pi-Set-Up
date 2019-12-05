@@ -5,8 +5,13 @@ sense = SenseHat()
 
 lastpressed = 0
 
+
 def shutdown():
-    sense.show_letter("X", (200,0,0))
+    for i in range(4):
+        sense.show_letter("X", (200, 0, 0))
+        time.sleep(0.25)
+        sense.clear()
+
     print('shutdown')
     os.system("halt -p")
 
