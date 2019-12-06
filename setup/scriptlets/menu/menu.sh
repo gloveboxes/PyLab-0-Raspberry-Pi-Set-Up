@@ -12,7 +12,7 @@ declare -a options=( \
 
 declare -a cmds=(\
             "sudo apt update && sudo apt upgrade -y" \
-            "$scriptDir/common/load-ftp.sh && $scriptDir/common/copy-lab-to-user.sh" \
+            "$scriptDir/common/load-ftp.sh && $scriptDir/multiuser/copy-lab-to-user.sh" \
             "$scriptDir/multiuser/copy-remote-ssh.sh" \
             "$scriptDir/multiuser/cleanup-lab.sh" \
             "$scriptDir/multiuser/create-users.sh" 
