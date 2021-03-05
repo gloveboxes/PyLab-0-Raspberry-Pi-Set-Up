@@ -8,11 +8,11 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 <br/>
 
-|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
+|Author|[Dave Glover](https://developer.microsoft.com/advocates/dave-glover?WT.mc_id=iot-0000-dglover), Microsoft Cloud Developer Advocate |
 |:----|:---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
-|Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
-|Tools| [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=pycon-blog-dglover)|
+|Services | [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/?WT.mc_id=iot-0000-dglover) |
+|Tools| [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=iot-0000-dglover)|
 |Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) model required for 20 Users. Raspberry Pi [Sense HAT](https://www.raspberrypi.org/products/sense-hat/), Optional: Raspberry Pi [case](https://shop.pimoroni.com/products/pibow-coupe-4?variant=29210100138067), [active cooling fan](https://shop.pimoroni.com/products/fan-shim)
 |**USB3 SSD Drive**| To support up to 20 users per Raspberry Pi you need a **fast** USB3 SSD Drive to run Raspbian Buster Linux on. A 120 USB3 SSD drive will be more than sufficient. These are readily available from online stores.
 |Language| Python|
@@ -41,7 +41,7 @@ bash -c "$(curl https://raw.githubusercontent.com/gloveboxes/PyLab-0-Raspberry-P
 1. Bring your own laptop running one of the follow Operating Systems:
 
     - Linux
-        - See [Installing Visual Studio Code on Linux](https://code.visualstudio.com/docs/setup/linux)
+        - See [Installing Visual Studio Code on Linux](https://code.visualstudio.com/docs/setup/linux?WT.mc_id=iot-0000-dglover)
     - macOS
     - Windows 10 (1809+).
         - Install the OpenSSH Client from PowerShell as Administrator.
